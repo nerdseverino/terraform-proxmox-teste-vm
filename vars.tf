@@ -34,3 +34,6 @@ variable "os_type" {
 variable "root_password" {
   default = "debian"
 }
+variable "pool" {
+  default = "Teste"
+}
