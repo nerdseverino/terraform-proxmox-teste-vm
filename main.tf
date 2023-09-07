@@ -76,19 +76,19 @@ resource "proxmox_vm_qemu" "cloudinit-test" {
 
  connection {
    type     = "ssh"
-   user     = "debian"
+   user     = var.root_user
    password = var.root_password
    host     = self.default_ipv4_address
  }
-# # Copies the setupserver file to /home/debian/
+# # Copies the setupserver file to /app/
  provisioner "file" {
    source      = "setupserver.sh"
-   destination = "/home/debian/setupserver.sh"
+   destination = "/app/setupserver.sh"
  }
  provisioner "remote-exec" {
    inline = [
-     "chmod +x /home/debian/setupserver.sh",
-     "/home/debian/setupserver.sh",
+     "chmod +x /app/setupserver.sh",
+     "/app/setupserver.sh",
    ]
  }
  provisioner "remote-exec" {

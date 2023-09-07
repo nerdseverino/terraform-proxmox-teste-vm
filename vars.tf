@@ -31,6 +31,9 @@ variable "cores" {
 variable "os_type" {
   default = "cloud-init"
 }
+variable "root_user" {
+  default = "debian"
+}
 variable "root_password" {
   default = "debian"
 }
